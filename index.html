@@ -831,6 +831,265 @@
       line-height: 1.7;
     }
 
+    .feature-card.feature-ai {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: start;
+      border-color: rgba(37, 211, 102, 0.25);
+      background: linear-gradient(135deg, rgba(37, 211, 102, 0.08) 0%, rgba(255,255,255,0.03) 100%);
+    }
+
+    .feature-card.feature-ai .feature-icon {
+      background: rgba(37, 211, 102, 0.2);
+      width: 56px;
+      height: 56px;
+    }
+
+    .feature-ai-badge {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      color: var(--wa-green);
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid rgba(37, 211, 102, 0.3);
+    }
+
+    /* AI section */
+    .ai-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .ai-points { list-style: none; margin-top: 24px; }
+
+    .ai-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 16px;
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .ai-points li strong { color: var(--text-primary); }
+
+    .ai-check {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: rgba(37, 211, 102, 0.15);
+      color: var(--wa-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+    }
+
+    .ai-check svg { width: 14px; height: 14px; }
+
+    .ai-mockup {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-glass);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.45), 0 0 40px rgba(37, 211, 102, 0.08);
+      background: #121212;
+    }
+
+    .ai-mockup-header {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #1a1a1a;
+    }
+
+    .ai-mockup-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .ai-mockup-brand-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--wa-green), var(--wa-green-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 900;
+      color: #fff;
+      box-shadow: 0 0 16px var(--wa-green-glow);
+    }
+
+    .ai-live-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      color: var(--wa-green);
+      font-weight: 600;
+    }
+
+    .ai-live-dot::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--wa-green);
+      animation: pulse 2s infinite;
+    }
+
+    .ai-mockup-body { padding: 16px; }
+
+    .ai-context {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 8px;
+      border: 1px solid var(--border-glass);
+    }
+
+    .ai-chat-preview {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+      max-height: 140px;
+      overflow: hidden;
+    }
+
+    .ai-bubble {
+      max-width: 85%;
+      padding: 8px 12px;
+      border-radius: 10px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .ai-bubble.customer {
+      background: var(--wa-panel);
+      color: var(--wa-text);
+      align-self: flex-start;
+      border-top-right-radius: 2px;
+    }
+
+    .ai-bubble.you {
+      background: #005c4b;
+      color: var(--wa-text);
+      align-self: flex-end;
+      border-top-left-radius: 2px;
+    }
+
+    .ai-suggest-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--wa-green);
+      margin-bottom: 10px;
+    }
+
+    .ai-suggest-label svg { width: 16px; height: 16px; }
+
+    .ai-suggestion {
+      padding: 14px;
+      background: rgba(37, 211, 102, 0.08);
+      border: 1px solid rgba(37, 211, 102, 0.25);
+      border-radius: 12px;
+      margin-bottom: 10px;
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+
+    .ai-suggestion.active {
+      border-color: rgba(37, 211, 102, 0.5);
+      box-shadow: 0 0 20px rgba(37, 211, 102, 0.12);
+      animation: aiSuggestIn 0.5s ease;
+    }
+
+    @keyframes aiSuggestIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ai-suggestion-text {
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .ai-suggestion-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .ai-btn {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: none;
+      cursor: default;
+    }
+
+    .ai-btn-primary {
+      background: var(--wa-green);
+      color: #0a0f0d;
+    }
+
+    .ai-btn-ghost {
+      background: rgba(255,255,255,0.06);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-glass);
+    }
+
+    .ai-typing {
+      display: none;
+      align-items: center;
+      gap: 6px;
+      padding: 14px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .ai-typing.visible { display: flex; }
+
+    .ai-typing-dots span {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--wa-green);
+      animation: typingDot 1.2s infinite;
+    }
+
+    .ai-typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .ai-typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes typingDot {
+      0%, 80%, 100% { opacity: 0.3; transform: translateY(0); }
+      40% { opacity: 1; transform: translateY(-3px); }
+    }
+
     /* Audience */
     .audience-grid {
       display: grid;
@@ -1135,7 +1394,7 @@
     }
 
     .faq-item.open .faq-answer {
-      max-height: 200px;
+      max-height: 280px;
       padding: 0 24px 20px;
     }
 
@@ -1221,6 +1480,8 @@
       .step { grid-template-columns: 1fr; gap: 32px; }
       .step:nth-child(even) { direction: rtl; }
       .features-grid { grid-template-columns: 1fr; }
+      .feature-card.feature-ai { grid-template-columns: 1fr; }
+      .ai-layout { grid-template-columns: 1fr; gap: 32px; }
       .audience-grid { grid-template-columns: repeat(2, 1fr); }
       .mockup-scene .mockup-body { height: 360px; }
       .mockup-scene .ext-panel { display: none; }
@@ -1299,12 +1560,12 @@
     <div class="container">
       <div class="hero-badge">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
-        חינם לגמרי · 30 שניות התקנה
+        חדש: תשובות AI חכמות · חינם לגמרי
       </div>
 
       <h1 id="hero-title"></h1>
 
-      <p class="hero-sub">הלקוחה ששאלה על מחיר ביום ראשון? היא כבר קבעה אצל המתחרה. WA Lead Helper יושב בתוך וואטסאפ ווב ומוודא שאף פנייה לא נקברת בין עשרות הצ'אטים.</p>
+      <p class="hero-sub">הלקוחה ששאלה על מחיר ביום ראשון? היא כבר קבעה אצל המתחרה. WA Lead Helper תופס כל ליד — ומודל AI קורא את הצ'אט ומציע לך תשובה מוכנה, במקום לשבור את הראש מה לכתוב.</p>
 
       <p class="hero-pain">בעל עסק ממוצע מפספס <strong>3 פניות בשבוע</strong> רק כי הן נקברו בצ'אטים — זה ₪1,500+ שאבודים בכל חודש.</p>
 
@@ -1764,16 +2025,87 @@
     </div>
   </section>
 
+  <!-- AI Smart Reply -->
+  <section id="ai">
+    <div class="container">
+      <div class="ai-layout reveal">
+        <div>
+          <span class="section-label">פיצ'ר חדש · AI</span>
+          <h2 class="section-title">"מה אני אמור לכתוב לה עכשיו?"</h2>
+          <p class="section-desc" style="margin-bottom:0">התוסף קורא את כל ההודעות בצ'אט — ומודל AI חכם מציע לך תשובה מנוסחת, מוכנה לשליחה. בלי לשבור את הראש על מילים, ניסוח או טון.</p>
+          <ul class="ai-points">
+            <li>
+              <span class="ai-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>קורא את כל השיחה</strong> — לא רק את ההודעה האחרונה. מבין הקשר, מחיר, תאריכים ומה הלקוח באמת רוצה.</span>
+            </li>
+            <li>
+              <span class="ai-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>תשובה בעברית, בגובה העיניים</strong> — ניסוח טבעי של בעל עסק, לא רובוט קר. לחיצה אחת ושולחים.</span>
+            </li>
+            <li>
+              <span class="ai-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>אתה תמיד שולט</strong> — רואה את ההצעה, עורך אם צריך, ורק אז שולח. שום דבר לא יוצא אוטומטית.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="ai-mockup">
+          <div class="ai-mockup-header">
+            <div class="ai-mockup-brand">
+              <div class="ai-mockup-brand-icon">AI</div>
+              תשובה מומלצת
+            </div>
+            <span class="ai-live-dot">קורא את הצ'אט</span>
+          </div>
+          <div class="ai-mockup-body">
+            <div class="ai-context">שיחה עם: מיכל - קוסמטיקה · 4 הודעות אחרונות</div>
+            <div class="ai-chat-preview" id="ai-chat-preview">
+              <div class="ai-bubble customer">שלום! ראיתי את העבודות שלך באינסטגרם, ממש יפה 🌸</div>
+              <div class="ai-bubble you">היי מיכל! תודה רבה 😊 מה מעניין אותך?</div>
+              <div class="ai-bubble customer">מחפשת טיפול פנים + איפור לאירוע ביום שישי</div>
+              <div class="ai-bubble customer">כמה זה עולה בערך?</div>
+            </div>
+            <div class="ai-suggest-label">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4v1a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M6 10h12v2a6 6 0 01-12 0v-2z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg>
+              הצעת AI לפי השיחה
+            </div>
+            <div class="ai-typing" id="ai-typing">
+              <span class="ai-typing-dots"><span></span><span></span><span></span></span>
+              מנתח את השיחה ומנסח תשובה...
+            </div>
+            <div class="ai-suggestion active" id="ai-suggestion">
+              <div class="ai-suggestion-text" id="ai-suggestion-text">היי מיכל! שמחה שאהבת 😊 טיפול פנים + איפור לאירוע זה בערך 450–650 ₪, תלוי בסוג האיפור. יש לי פנוי ביום שישי אחה״צ — רוצה שאשריין לך?</div>
+              <div class="ai-suggestion-actions">
+                <button class="ai-btn ai-btn-primary">העתק לשליחה</button>
+                <button class="ai-btn ai-btn-ghost">נסח מחדש</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Features -->
   <section id="features">
     <div class="container">
       <div class="reveal text-center">
         <span class="section-label">מה זה נותן לך</span>
         <h2 class="section-title">"אני לא מצליח לעקוב אחרי כולם"</h2>
-        <p class="section-desc">ארבעה דברים שכל בעל עסק קטן צריך — וש-CRM של ₪500 בחודש לא פותר.</p>
+        <p class="section-desc">חמישה דברים שכל בעל עסק קטן צריך — וש-CRM של ₪500 בחודש לא פותר.</p>
       </div>
 
       <div class="features-grid reveal">
+        <div class="feature-card feature-ai">
+          <div class="feature-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4v1a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M6 10h12v2a6 6 0 01-12 0v-2z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg>
+          </div>
+          <div>
+            <span class="feature-ai-badge">חדש · AI</span>
+            <h3>לא תשבור את הראש מה לכתוב</h3>
+            <p>התוסף קורא את כל ההודעות בצ'אט ומודל AI מציע תשובה מנוסחת בעברית — מוכנה לשליחה. אתה רק מאשר או עורך. חוסך דקות בכל פנייה.</p>
+          </div>
+        </div>
         <div class="feature-card">
           <div class="feature-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
@@ -1851,18 +2183,25 @@
 
       <div class="faq-list reveal">
         <div class="faq-item">
+          <button class="faq-question" data-track="faq_open" data-track-question="ai">
+            איך עובדות תשובות ה-AI?
+            <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </button>
+          <div class="faq-answer">התוסף קורא את הודעות הצ'אט הפתוח ומודל AI מציע תשובה מנוסחת בעברית. אתה רואה את ההצעה, יכול לערוך, ורק אז שולח — שום דבר לא יוצא אוטומטית בלי אישור שלך.</div>
+        </div>
+        <div class="faq-item">
           <button class="faq-question" data-track="faq_open" data-track-question="privacy">
             זה רואה את ההודעות שלי?
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
-          <div class="faq-answer">לא. הכל נשמר מקומית בדפדפן שלך — אף מידע לא עובר לשרתים שלנו. אנחנו לא רואים, לא שומרים, ולא מוכרים שום דבר.</div>
+          <div class="faq-answer">תגיות, הערות ותזכורות נשמרות מקומית בדפדפן שלך. כשאתה מבקש תשובת AI — רק תוכן הצ'אט הרלוונטי נשלח למודל כדי לנסח הצעה, ולא נשמר אצלנו כמאגר לקוחות.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" data-track="faq_open" data-track-question="ban">
             וואטסאפ יכול לחסום אותי?
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
-          <div class="faq-answer">לא. התוסף לא שולח שום הודעה, לא מוסיף אנשים, ולא נוגע בחשבון שלך. הוא רק מסדר את התצוגה — כמו פתקיות צבעוניות על המסך.</div>
+          <div class="faq-answer">לא. התוסף לא שולח הודעות בשמך, לא מוסיף אנשים, ולא נוגע בחשבון. תשובות AI הן הצעות בלבד — רק אתה לוחץ שליחה בוואטסאפ.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" data-track="faq_open" data-track-question="free">
@@ -2058,6 +2397,36 @@
 
       setInterval(cycleDemo, 4000);
       setTimeout(cycleDemo, 2000);
+    })();
+
+    // AI suggestion live demo
+    (function() {
+      var suggestions = [
+        'היי מיכל! שמחה שאהבת 😊 טיפול פנים + איפור לאירוע זה בערך 450–650 ₪, תלוי בסוג האיפור. יש לי פנוי ביום שישי אחה״צ — רוצה שאשריין לך?',
+        'בוודאי! לאיפור ערב + טיפול פנים לפני האירוע אני ממליצה להגיע שעתיים לפני. רוצה שאשלח לך את המחירון המלא?',
+        'מעולה ששאלת. יש לי חבילת "אירוע מושלם" — טיפול + איפור ב-550 ₪. פנוי ביום שישי מ-15:00. מתאים?'
+      ];
+      var idx = 0;
+      var textEl = document.getElementById('ai-suggestion-text');
+      var boxEl = document.getElementById('ai-suggestion');
+      var typingEl = document.getElementById('ai-typing');
+      if (!textEl || !boxEl) return;
+
+      function cycleAi() {
+        if (typingEl) typingEl.classList.add('visible');
+        boxEl.style.opacity = '0.4';
+        setTimeout(function() {
+          idx = (idx + 1) % suggestions.length;
+          textEl.textContent = suggestions[idx];
+          if (typingEl) typingEl.classList.remove('visible');
+          boxEl.style.opacity = '1';
+          boxEl.classList.remove('active');
+          void boxEl.offsetWidth;
+          boxEl.classList.add('active');
+        }, 1400);
+      }
+
+      setInterval(cycleAi, 5500);
     })();
 
     // Scroll reveal
