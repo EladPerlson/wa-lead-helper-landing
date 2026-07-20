@@ -1034,6 +1034,7 @@
       line-height: 1.6;
       color: var(--text-primary);
       margin-bottom: 10px;
+      white-space: pre-line;
     }
 
     .ai-suggestion-actions {
@@ -1061,6 +1062,65 @@
       color: var(--text-secondary);
       border: 1px solid var(--border-glass);
     }
+
+    .ai-modes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .ai-mode {
+      padding: 5px 12px;
+      border-radius: 100px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border-glass);
+      color: var(--text-muted);
+      cursor: default;
+      transition: all 0.25s;
+    }
+
+    .ai-mode.active {
+      background: rgba(37, 211, 102, 0.15);
+      border-color: rgba(37, 211, 102, 0.4);
+      color: var(--wa-green);
+    }
+
+    .ai-ask-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      align-items: center;
+    }
+
+    .ai-ask-input {
+      flex: 1;
+      padding: 10px 14px;
+      background: var(--wa-input);
+      border: 1px solid var(--border-glass);
+      border-radius: 10px;
+      color: var(--wa-text-muted);
+      font-size: 0.75rem;
+      font-family: inherit;
+    }
+
+    .ai-ask-send {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: none;
+      background: var(--wa-green);
+      color: #0a0f0d;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      cursor: default;
+    }
+
+    .ai-ask-send svg { width: 16px; height: 16px; }
 
     .ai-typing {
       display: none;
@@ -1565,7 +1625,7 @@
 
       <h1 id="hero-title"></h1>
 
-      <p class="hero-sub">הלקוחה ששאלה על מחיר ביום ראשון? היא כבר קבעה אצל המתחרה. WA Lead Helper תופס כל ליד — ומודל AI קורא את הצ'אט ומציע לך תשובה מוכנה, במקום לשבור את הראש מה לכתוב.</p>
+      <p class="hero-sub">הלקוחה ששאלה על מחיר ביום ראשון? היא כבר קבעה אצל המתחרה. WA Lead Helper תופס כל ליד — ו-AI שמציע תשובות, עונה לשאלות, נותן טיפים ומחפש בתוך הצ'אט במקומך.</p>
 
       <p class="hero-pain">בעל עסק ממוצע מפספס <strong>3 פניות בשבוע</strong> רק כי הן נקברו בצ'אטים — זה ₪1,500+ שאבודים בכל חודש.</p>
 
@@ -2032,19 +2092,23 @@
         <div>
           <span class="section-label">פיצ'ר חדש · AI</span>
           <h2 class="section-title">"מה אני אמור לכתוב לה עכשיו?"</h2>
-          <p class="section-desc" style="margin-bottom:0">התוסף קורא את כל ההודעות בצ'אט — ומודל AI חכם מציע לך תשובה מנוסחת, מוכנה לשליחה. בלי לשבור את הראש על מילים, ניסוח או טון.</p>
+          <p class="section-desc" style="margin-bottom:0">התוסף קורא את כל ההודעות בצ'אט — ומודל AI חכם עוזר לך לענות, לשאול, לקבל טיפים ולמצוא דברים בשיחה. בלי לשבור את הראש.</p>
           <ul class="ai-points">
             <li>
               <span class="ai-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <span><strong>קורא את כל השיחה</strong> — לא רק את ההודעה האחרונה. מבין הקשר, מחיר, תאריכים ומה הלקוח באמת רוצה.</span>
+              <span><strong>תשובה מומלצת</strong> — מנסח בשבילך תשובה בעברית לפי כל ההקשר של השיחה. לחיצה אחת ושולחים.</span>
             </li>
             <li>
               <span class="ai-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <span><strong>תשובה בעברית, בגובה העיניים</strong> — ניסוח טבעי של בעל עסק, לא רובוט קר. לחיצה אחת ושולחים.</span>
+              <span><strong>שאל את ה-AI</strong> — "מה היא ביקשה?", "האם דיברנו על מחיר?" — מקבל תשובה מיידית לפי הצ'אט.</span>
             </li>
             <li>
               <span class="ai-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
-              <span><strong>אתה תמיד שולט</strong> — רואה את ההצעה, עורך אם צריך, ורק אז שולח. שום דבר לא יוצא אוטומטית.</span>
+              <span><strong>טיפים לסגירה</strong> — מה לשאול בהמשך, איך להזיז ליד חם, ומתי כדאי לעשות פולואפ.</span>
+            </li>
+            <li>
+              <span class="ai-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+              <span><strong>חיפוש בתוך הצ'אט</strong> — מוצא מחירים, תאריכים, כתובות והבטחות שנאמרו — בלי לגלול 200 הודעות.</span>
             </li>
           </ul>
         </div>
@@ -2053,7 +2117,7 @@
           <div class="ai-mockup-header">
             <div class="ai-mockup-brand">
               <div class="ai-mockup-brand-icon">AI</div>
-              תשובה מומלצת
+              עוזר AI בצ'אט
             </div>
             <span class="ai-live-dot">קורא את הצ'אט</span>
           </div>
@@ -2065,19 +2129,31 @@
               <div class="ai-bubble customer">מחפשת טיפול פנים + איפור לאירוע ביום שישי</div>
               <div class="ai-bubble customer">כמה זה עולה בערך?</div>
             </div>
-            <div class="ai-suggest-label">
+            <div class="ai-modes" id="ai-modes">
+              <span class="ai-mode active" data-mode="reply">תשובה מומלצת</span>
+              <span class="ai-mode" data-mode="ask">שאל את ה-AI</span>
+              <span class="ai-mode" data-mode="tips">טיפים</span>
+              <span class="ai-mode" data-mode="search">חיפוש בצ'אט</span>
+            </div>
+            <div class="ai-suggest-label" id="ai-suggest-label">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a4 4 0 014 4v1a4 4 0 01-8 0V6a4 4 0 014-4z"/><path d="M6 10h12v2a6 6 0 01-12 0v-2z"/><line x1="9" y1="20" x2="15" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg>
-              הצעת AI לפי השיחה
+              <span id="ai-label-text">הצעת AI לפי השיחה</span>
             </div>
             <div class="ai-typing" id="ai-typing">
               <span class="ai-typing-dots"><span></span><span></span><span></span></span>
-              מנתח את השיחה ומנסח תשובה...
+              <span id="ai-typing-text">מנתח את השיחה...</span>
             </div>
             <div class="ai-suggestion active" id="ai-suggestion">
               <div class="ai-suggestion-text" id="ai-suggestion-text">היי מיכל! שמחה שאהבת 😊 טיפול פנים + איפור לאירוע זה בערך 450–650 ₪, תלוי בסוג האיפור. יש לי פנוי ביום שישי אחה״צ — רוצה שאשריין לך?</div>
-              <div class="ai-suggestion-actions">
+              <div class="ai-suggestion-actions" id="ai-suggestion-actions">
                 <button class="ai-btn ai-btn-primary">העתק לשליחה</button>
                 <button class="ai-btn ai-btn-ghost">נסח מחדש</button>
+              </div>
+            </div>
+            <div class="ai-ask-row">
+              <div class="ai-ask-input" id="ai-ask-input">שאל על הצ'אט או בקש טיפ...</div>
+              <div class="ai-ask-send">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
               </div>
             </div>
           </div>
@@ -2102,8 +2178,8 @@
           </div>
           <div>
             <span class="feature-ai-badge">חדש · AI</span>
-            <h3>לא תשבור את הראש מה לכתוב</h3>
-            <p>התוסף קורא את כל ההודעות בצ'אט ומודל AI מציע תשובה מנוסחת בעברית — מוכנה לשליחה. אתה רק מאשר או עורך. חוסך דקות בכל פנייה.</p>
+            <h3>לא תשבור את הראש — שאל, חפש, קבל תשובה</h3>
+            <p>ה-AI קורא את כל הצ'אט: מציע תשובה מוכנה, עונה לשאלות שלך, נותן טיפים לסגירה ומחפש מחירים ותאריכים בתוך השיחה — בלי לגלול.</p>
           </div>
         </div>
         <div class="feature-card">
@@ -2187,7 +2263,7 @@
             איך עובדות תשובות ה-AI?
             <svg class="faq-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
           </button>
-          <div class="faq-answer">התוסף קורא את הודעות הצ'אט הפתוח ומודל AI מציע תשובה מנוסחת בעברית. אתה רואה את ההצעה, יכול לערוך, ורק אז שולח — שום דבר לא יוצא אוטומטית בלי אישור שלך.</div>
+          <div class="faq-answer">התוסף קורא את הודעות הצ'אט הפתוח. אפשר לבקש תשובה מומלצת, לשאול שאלות על השיחה, לקבל טיפים לסגירה, ולחפש דברים בתוך הצ'אט (מחיר, תאריך, הבטחה). אתה תמיד רואה את התוצאה לפני ששולחים — שום דבר לא יוצא אוטומטית.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" data-track="faq_open" data-track-question="privacy">
@@ -2399,34 +2475,110 @@
       setTimeout(cycleDemo, 2000);
     })();
 
-    // AI suggestion live demo
+    // AI assistant live demo (reply / ask / tips / search)
     (function() {
-      var suggestions = [
-        'היי מיכל! שמחה שאהבת 😊 טיפול פנים + איפור לאירוע זה בערך 450–650 ₪, תלוי בסוג האיפור. יש לי פנוי ביום שישי אחה״צ — רוצה שאשריין לך?',
-        'בוודאי! לאיפור ערב + טיפול פנים לפני האירוע אני ממליצה להגיע שעתיים לפני. רוצה שאשלח לך את המחירון המלא?',
-        'מעולה ששאלת. יש לי חבילת "אירוע מושלם" — טיפול + איפור ב-550 ₪. פנוי ביום שישי מ-15:00. מתאים?'
+      var modes = [
+        {
+          id: 'reply',
+          label: 'הצעת AI לפי השיחה',
+          typing: 'מנסח תשובה מומלצת...',
+          ask: 'שאל על הצ\'אט או בקש טיפ...',
+          text: 'היי מיכל! שמחה שאהבת 😊 טיפול פנים + איפור לאירוע זה בערך 450–650 ₪, תלוי בסוג האיפור. יש לי פנוי ביום שישי אחה״צ — רוצה שאשריין לך?',
+          primary: 'העתק לשליחה',
+          ghost: 'נסח מחדש'
+        },
+        {
+          id: 'ask',
+          label: 'תשובה לשאלה שלך',
+          typing: 'בודק את הצ\'אט...',
+          ask: 'מה היא ביקשה בדיוק?',
+          text: 'מיכל מחפשת טיפול פנים + איפור לאירוע ביום שישי, ושאלה כמה זה עולה בערך. עדיין לא נתת מחיר ולא קבעת שעה.',
+          primary: 'המשך לשאול',
+          ghost: 'תשובה מומלצת'
+        },
+        {
+          id: 'tips',
+          label: 'טיפ לסגירת הליד',
+          typing: 'מכין טיפ לפי השיחה...',
+          ask: 'תן לי טיפ איך לסגור אותה',
+          text: 'היא כבר חמה — שאלה על מחיר ותאריך. תציע חבילה ברורה + שעה פנויה אחת ביום שישי, ותשאל "רוצה שאשריין?" כדי לדחוף לסגירה.',
+          primary: 'השתמש בטיפ',
+          ghost: 'טיפ נוסף'
+        },
+        {
+          id: 'search',
+          label: 'נמצא בצ\'אט',
+          typing: 'מחפש בתוך השיחה...',
+          ask: 'חפש מחיר או תאריך בצ\'אט',
+          text: '🔍 תאריך: יום שישי (אירוע)\n🔍 שירות: טיפול פנים + איפור\n🔍 מחיר: עדיין לא נאמר בשיחה — כדאי לשלוח הצעה עכשיו',
+          primary: 'העתק סיכום',
+          ghost: 'חפש שוב'
+        }
       ];
       var idx = 0;
       var textEl = document.getElementById('ai-suggestion-text');
       var boxEl = document.getElementById('ai-suggestion');
       var typingEl = document.getElementById('ai-typing');
+      var typingText = document.getElementById('ai-typing-text');
+      var labelText = document.getElementById('ai-label-text');
+      var askInput = document.getElementById('ai-ask-input');
+      var modesEl = document.getElementById('ai-modes');
+      var actionsEl = document.getElementById('ai-suggestion-actions');
       if (!textEl || !boxEl) return;
+
+      function applyMode(mode) {
+        if (labelText) labelText.textContent = mode.label;
+        if (typingText) typingText.textContent = mode.typing;
+        if (askInput) askInput.textContent = mode.ask;
+        textEl.textContent = mode.text;
+        if (actionsEl) {
+          var buttons = actionsEl.querySelectorAll('.ai-btn');
+          if (buttons[0]) buttons[0].textContent = mode.primary;
+          if (buttons[1]) buttons[1].textContent = mode.ghost;
+        }
+        if (modesEl) {
+          modesEl.querySelectorAll('.ai-mode').forEach(function(chip) {
+            chip.classList.toggle('active', chip.getAttribute('data-mode') === mode.id);
+          });
+        }
+      }
 
       function cycleAi() {
         if (typingEl) typingEl.classList.add('visible');
-        boxEl.style.opacity = '0.4';
+        boxEl.style.opacity = '0.35';
         setTimeout(function() {
-          idx = (idx + 1) % suggestions.length;
-          textEl.textContent = suggestions[idx];
+          idx = (idx + 1) % modes.length;
+          applyMode(modes[idx]);
           if (typingEl) typingEl.classList.remove('visible');
           boxEl.style.opacity = '1';
           boxEl.classList.remove('active');
           void boxEl.offsetWidth;
           boxEl.classList.add('active');
-        }, 1400);
+        }, 1200);
       }
 
-      setInterval(cycleAi, 5500);
+      if (modesEl) {
+        modesEl.querySelectorAll('.ai-mode').forEach(function(chip) {
+          chip.addEventListener('click', function() {
+            var id = chip.getAttribute('data-mode');
+            var found = modes.findIndex(function(m) { return m.id === id; });
+            if (found < 0) return;
+            idx = found;
+            if (typingEl) typingEl.classList.add('visible');
+            boxEl.style.opacity = '0.35';
+            setTimeout(function() {
+              applyMode(modes[idx]);
+              if (typingEl) typingEl.classList.remove('visible');
+              boxEl.style.opacity = '1';
+              boxEl.classList.remove('active');
+              void boxEl.offsetWidth;
+              boxEl.classList.add('active');
+            }, 700);
+          });
+        });
+      }
+
+      setInterval(cycleAi, 5000);
     })();
 
     // Scroll reveal
